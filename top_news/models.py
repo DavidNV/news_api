@@ -12,9 +12,6 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
-    class Meta:
-        ordering = ('published_at',)
-
 class Author(models.Model):
     name = models.CharField(max_length=255)
     articles = models.ManyToManyField(Article)
