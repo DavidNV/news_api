@@ -21,3 +21,9 @@ class Author(models.Model):
 
     def __str__(self):
         return self.name
+
+class Source(models.Model):
+    uid = models.CharField(max_length=70)
+    name = models.CharField(max_length=200)
+    articles = models.ManyToManyField(Article)
+    authors = models.ManyToManyField(Author)
