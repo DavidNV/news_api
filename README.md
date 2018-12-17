@@ -8,7 +8,7 @@ Please wait for the docker image to be constructed
 
 ### Prerequisites
 
-In order to run this project you need to have the following:
+In order to run this project you'll need:
 
 ```
 Docker version 18.06
@@ -22,20 +22,20 @@ A valid *newsapi* API Key
 
 ### Installing
 
-In a few then...
-
+Once you have Docker and Compose use *sudo docker-compose build --build-arg inbound_api_key=[YOUR_API_KEY]*
 
 ```
-docker-compose ...
+If you made a mistake by using another docker command before, just use *source clean_environment.sh*
+For now, please use this command as well if you add more dependencies to the requirements file.
 ```
 ```
-TBC
+For launching a bash container use: *sudo docker-compose run web bash*
+For launching the server: *sudo docker-compose up*
+```
+```
+If you want to populate the database with the last 100 new please *sudo docker-compose run web python3.7 seeds.py*
 ```
 
-
-## Running the tests
-
-Check tests
 
 ## Built With
 

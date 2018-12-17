@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
       args:
         - inbound_api_key
-    command: bash -c "pip install -r requirements.txt && python3 manage.py runserver 0.0.0.0:8000"
+    command: bash -c "pip install -r requirements.txt && python3.7 manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/news_api
     ports:
@@ -19,6 +19,6 @@ services:
       dockerfile: Dockerfile
       args: 
         - inbound_api_key
-    command: bash -c "python manage.py makemigrations && python manage.py migrate"
+    command: bash -c "python3.7 manage.py makemigrations && python manage.py migrate"
     volumes:
       - .:/news_api
