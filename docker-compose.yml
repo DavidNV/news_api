@@ -1,18 +1,24 @@
 version: '3'
 
 services:
-  db:
-    image: postgres
   web:
     build:
       context: .
       dockerfile: Dockerfile
       args:
         - inbound_api_key
-    command: python3 manage.py runserver 0.0.0.0:8000
+    command: bash -c "pip install -r requirements.txt && python3 manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/news_api
     ports:
       - "8000:8000"
-    depends_on:
-      - db
+
+  migrate:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args: 
+        - inbound_api_key
+    command: bash -c "python manage.py makemigrations && python manage.py migrate"
+    volumes:
+      - .:/news_api
