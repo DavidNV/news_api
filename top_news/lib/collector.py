@@ -25,5 +25,5 @@ class Collector:
     def __get_api_key__(self):
         return os.environ['API_KEY']
 
-    def __default_response__(self)
-        return {"status": 400, "total_results": 0, "articles": []}
+    def __default_response__(self):
+        return {"status": "unprocessable_entity", "totalResults": 0, "articles": []}
